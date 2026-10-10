@@ -6,7 +6,9 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/the14thsky/filament-sidebar-coscroll/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/the14thsky/filament-sidebar-coscroll/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/the14thsky/filament-sidebar-coscroll.svg?style=flat-square)](https://packagist.org/packages/the14thsky/filament-sidebar-coscroll)
 
-Makes the Filament panel sidebar scroll together with the page instead of in its own scroll box. A menu taller than the window travels with the page in both directions: it pins to the bottom as you scroll down and to the top as you scroll up. A menu that fits stays pinned at the top. The open mobile drawer can co-scroll too.
+Filament gives a long sidebar its own scroll box. Sidebar Co-scroll makes it move with the page instead: scroll down and it follows until its last item reaches the bottom of the window; scroll up and it comes straight back, stopping under the topbar. A menu that fits stays put.
+
+It works with every sidebar layout (collapsible, fully collapsible and top navigation) and with the mobile drawer. There's no theme to rebuild or config to publish, and it only loads on the panels you register it on.
 
 Requires Filament 5.
 
