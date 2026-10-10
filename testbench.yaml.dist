@@ -1,0 +1,32 @@
+laravel: '@testbench'
+
+env:
+  APP_ENV: local
+  APP_DEBUG: true
+  APP_KEY: base64:vCIH/8xfOlhV5HU3nBL2Bmx3EVo8MfYbXDs2kJNcvw8=
+  AUTH_MODEL: Workbench\App\Models\User
+  DB_CONNECTION: sqlite
+  SESSION_DRIVER: file
+  CACHE_STORE: file
+
+providers:
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+workbench:
+  start: '/default'
+  install: true
+  health: false
+  discovers:
+    web: false
+    api: false
+    commands: false
+    components: false
+    factories: false
+    views: false
+  build:
+    - create-sqlite-db
+    - db-wipe
+    - migrate-fresh
+    - db-seed:
+        --class: Workbench\Database\Seeders\DatabaseSeeder
+    - filament-assets

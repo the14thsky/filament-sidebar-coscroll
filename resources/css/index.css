@@ -1,0 +1,40 @@
+/*
+ * Desktop nav sidebar co-scrolls with the page; the sticky `top` is set by the script. Only
+ * applies where Filament itself makes the sidebar sticky: with top navigation, or a fully
+ * collapsible sidebar that is closed, it stays `fixed` off-screen and must not take up space.
+ */
+@media (width >= 64rem) {
+    .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation):not(.fi-body-has-sidebar-fully-collapsible-on-desktop) .fi-sidebar,
+    .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation) .fi-sidebar.fi-sidebar-open {
+        position: sticky !important;
+        bottom: auto;
+        height: auto;
+        min-height: calc(100dvh - var(--sidebar-coscroll-topbar-offset, 4rem));
+        max-height: none;
+        align-self: flex-start;
+    }
+
+    .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation):not(.fi-body-has-sidebar-fully-collapsible-on-desktop) .fi-sidebar .fi-sidebar-nav,
+    .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation) .fi-sidebar.fi-sidebar-open .fi-sidebar-nav {
+        overflow: visible;
+    }
+}
+
+/* Mobile drawer co-scrolls while open; the class is toggled by the script. */
+@media (width < 64rem) {
+    .fi-body.fi-body-has-navigation .fi-sidebar.sidebar-coscroll-mobile {
+        position: sticky !important;
+        bottom: auto;
+        height: auto;
+        min-height: 100dvh;
+        align-self: flex-start;
+        margin-inline-end: calc(var(--sidebar-width) * -1);
+        transition-property: transform, translate, scale, rotate;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+    }
+
+    .fi-body.fi-body-has-navigation .fi-sidebar.sidebar-coscroll-mobile .fi-sidebar-nav {
+        overflow: visible;
+    }
+}
