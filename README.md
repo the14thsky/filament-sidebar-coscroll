@@ -1,5 +1,7 @@
 # Filament Sidebar Co-scroll
 
+<img class="filament-hidden" src="https://raw.githubusercontent.com/the14thsky/filament-sidebar-coscroll/main/art/plugin-image.jpg" alt="Sidebar Co-scroll: the sidebar pins to the bottom when scrolling down and to the top when scrolling up">
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/the14thsky/filament-sidebar-coscroll.svg?style=flat-square)](https://packagist.org/packages/the14thsky/filament-sidebar-coscroll)
 [![Tests](https://img.shields.io/github/actions/workflow/status/the14thsky/filament-sidebar-coscroll/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/the14thsky/filament-sidebar-coscroll/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/the14thsky/filament-sidebar-coscroll.svg?style=flat-square)](https://packagist.org/packages/the14thsky/filament-sidebar-coscroll)
