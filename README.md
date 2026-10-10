@@ -10,7 +10,7 @@ Filament gives a long sidebar its own scroll box. Sidebar Co-scroll makes it mov
 
 It works with every sidebar layout (collapsible, fully collapsible and top navigation) and with the mobile drawer. There's no theme to rebuild or config to publish, and it only loads on the panels you register it on.
 
-Requires Filament 5.
+Requires Filament 4 or 5.
 
 ## Installation
 

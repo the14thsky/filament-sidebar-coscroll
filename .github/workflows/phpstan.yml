@@ -19,6 +19,7 @@ jobs:
       matrix:
         php: [8.4, 8.3, 8.2]
         laravel: [13.*, 12.*, 11.*]
+        filament: [5.*, 4.*]
         stability: [prefer-stable]
         include:
           - laravel: 13.*
@@ -30,7 +31,7 @@ jobs:
         exclude:
           - laravel: 13.*
             php: 8.2
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - F${{ matrix.filament }} - ${{ matrix.stability }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -40,7 +41,7 @@ jobs:
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.composer/cache/files
-          key: composer-${{ matrix.php }}-${{ matrix.laravel }}-${{ hashFiles('composer.json') }}
+          key: composer-${{ matrix.php }}-${{ matrix.laravel }}-${{ matrix.filament }}-${{ hashFiles('composer.json') }}
           restore-keys: |
             composer-${{ matrix.php }}-${{ matrix.laravel }}-
             composer-${{ matrix.php }}-
@@ -49,7 +50,7 @@ jobs:
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: /tmp/phpstan
-          key: phpstan-${{ matrix.php }}-${{ matrix.laravel }}-${{ github.sha }}
+          key: phpstan-${{ matrix.php }}-${{ matrix.laravel }}-${{ matrix.filament }}-${{ github.sha }}
           restore-keys: |
             phpstan-${{ matrix.php }}-${{ matrix.laravel }}-
 
@@ -62,7 +63,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "filament/filament:${{ matrix.filament }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Run PHPStan
