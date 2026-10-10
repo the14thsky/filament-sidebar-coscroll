@@ -56,7 +56,7 @@ SidebarCoscrollPlugin::make()
 
 ## Known limitations
 
-With SPA mode, every navigation scrolls the page back to the top, so the sidebar returns to the top as well.
+In SPA mode, Filament normally keeps the sidebar's scroll position when you move between pages. With co-scroll the sidebar scrolls with the page instead, and each SPA navigation starts the new page at the top, so the sidebar starts from the top too. After clicking an item far down a long menu, you'll need to scroll back down to see it.
 
 ## Testing
 
