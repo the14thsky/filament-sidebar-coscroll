@@ -2,8 +2,11 @@
  * Desktop nav sidebar co-scrolls with the page; the sticky `top` is set by the script. Only
  * applies where Filament itself makes the sidebar sticky: with top navigation, or a fully
  * collapsible sidebar that is closed, it stays `fixed` off-screen and must not take up space.
+ *
+ * The breakpoints use the same `min-width` form Filament compiles its `lg` breakpoint to, so
+ * they work in every browser Filament does (range syntax needs Safari 16.4+).
  */
-@media (width >= 64rem) {
+@media (min-width: 64rem) {
     .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation):not(.fi-body-has-sidebar-fully-collapsible-on-desktop) .fi-sidebar,
     .fi-body.fi-body-has-navigation:not(.fi-body-has-top-navigation) .fi-sidebar.fi-sidebar-open {
         position: sticky !important;
@@ -21,7 +24,7 @@
 }
 
 /* Mobile drawer co-scrolls while open; the class is toggled by the script. */
-@media (width < 64rem) {
+@media not all and (min-width: 64rem) {
     .fi-body.fi-body-has-navigation .fi-sidebar.sidebar-coscroll-mobile {
         position: sticky !important;
         bottom: auto;

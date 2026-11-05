@@ -4,11 +4,15 @@
  * and the top on the way up. A menu that fits stays pinned at the top.
  */
 (() => {
-    const DESKTOP_MIN_WIDTH = 1024;
     const MOBILE_CLASS = 'sidebar-coscroll-mobile';
 
+    // Same query as Filament's `lg` breakpoint and the stylesheet. A rem query follows the
+    // browser's default font size, so a fixed pixel width would disagree with the CSS whenever
+    // that isn't 16px.
+    const desktopQuery = window.matchMedia('(min-width: 64rem)');
+
     const getTopbarOffset = () => document.querySelector('.fi-topbar-ctn')?.offsetHeight ?? 0;
-    const isDesktop = () => window.innerWidth >= DESKTOP_MIN_WIDTH;
+    const isDesktop = () => desktopQuery.matches;
     const isMobileDrawerEnabled = () => window.filamentData?.sidebarCoscroll?.mobileDrawer !== false;
 
     let sidebar = null;
